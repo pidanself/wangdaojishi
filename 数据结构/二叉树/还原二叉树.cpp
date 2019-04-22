@@ -1,5 +1,6 @@
 #include<iostream>
 #include<cstring>
+
 using namespace std;
 
 struct Node{
@@ -8,6 +9,7 @@ struct Node{
 	char c;
 };
 
+Node *rr[100];
 char str1[30],str2[30];
 
 
@@ -20,6 +22,7 @@ void postorder(Node *T){
 		postorder(T->rchild);
 	}
 	cout<<T->c;
+	delete T;
 }
 
 Node *build(int s1,int e1,int s2,int e2){
@@ -51,10 +54,19 @@ Node *build(int s1,int e1,int s2,int e2){
 }
 
 int main(){
+	int n;
+	cin>>n;
+	for(int i=0;i<n;i++){
+		cin>>str1>>str2;
+		rr[i]=build(0,strlen(str1)-1,0,strlen(str2)-1);
+		str1[0]='\0';
+		str2[0]='\0';
+	} 
 	
-	scanf("%s %s",str1,str2);
-	Node *rr=build(0,strlen(str1)-1,0,strlen(str2)-1);
-	postorder(rr);
+	for(int i=0;i<n;i++){
+		postorder(rr[i]);
+		cout<<endl;
+	}
 
 
 	return 0;

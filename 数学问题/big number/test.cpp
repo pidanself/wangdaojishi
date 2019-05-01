@@ -1,19 +1,35 @@
-#include<stdio.h>  
-int main()  
-{  
-	char s[50];  
-	printf("请输入16进制数："); 
-	scanf("%s",s);  
-	int t;  
-	long sum=0;  
-	for(int i=0;s[i];i++)  
-	{  
-		if(s[i]<='9')  
-			t=s[i]-'0';  
-		else  
-			t=s[i]-'A'+10;  
-		sum=sum*16+t;  
-	}  
-	printf("转化为10进制数为：%ld\n",sum);  
-	return 0;  
+class Solution {
+public:
+    void merge(int nums1[], int m, int nums2[], int n) {
+        int index=m+n-1;
+        if(m==0) nums1=nums2;
+        else{
+            m--;
+            n--;
+            while(n>=0&&m>=0){
+                if(nums1[m]>nums2[n]){
+                    nums1[index--]=nums1[m];
+                }
+                else{
+                    nums1[index--]=nums2[n];
+                }
+            }
+            
+            if(n>=0){
+                for(int i=0;i<=n;i++){
+                    nums1[i]=nums2[i];
+                }
+            }  
+            
+        }
+        
+        
+        
+    }
+};
+
+int main(){
+	
+	
+	return 0;
 }

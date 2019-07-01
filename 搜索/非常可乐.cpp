@@ -161,7 +161,6 @@ int main(){
 	while(scanf("%d %d %d",&S,&M,&N)!=EOF&&S!=0){
 		pan(S,M,N);
 	}
-
 	return 0;
 }
 

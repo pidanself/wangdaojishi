@@ -28,15 +28,8 @@ public:
 	void merge(vector<int> &A,vector<int> &B,int s,int mid,int e){
 		int i=s,j=mid+1,k=s;
 		while(i!=mid+1&&j!=e+1){
-			if(A[i]<=2*A[j]) i++;
-			else{
-				j++;
-				ans+=mid-i+1;
-			}
-		}
-		i=s,j=mid+1,k=s;
-		while(i!=mid+1&&j!=e+1){			
 			if(A[i]>A[j]){
+				ans+=mid-i+1;
 				B[k++]=A[j++];
 			}
 			else{
@@ -55,18 +48,18 @@ public:
 	}
 };
 
+
 int main(){
-	int n;
-	cin>>n;
-	vector<int> A;
-	for(int i=0;i<n;i++){
-		int t;
-		cin>>t;
-		A.push_back(t);
-	}
 	AntiOrder a;
-	a.count(A,n);
+	vector<int> A;
+	for(int i=1;i<=7;i++){
+		A.push_back(i);
+	}
+	A.push_back(0);
+	
+	a.count(A,8);
 	cout<<a.ans;
+	
 
 	return 0;
 }

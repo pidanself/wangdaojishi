@@ -23,6 +23,10 @@ public:
         q.push(t);
         while(q.empty()==false){
         	N now=q.front();
+			N now = q.front();
+			N nowr = q.front();
+			N nowrr = q.front();
+			
         	q.pop();
         	if(now.tn->left!=NULL){
         		N tt;
